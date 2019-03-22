@@ -93,12 +93,12 @@ form#login, form#register {
 
 .login-form {
   width: 100%;
-  background-color: #b2b5ba;
+  background-color: #ecebf6;
 }
 
 .register-form {
   width: 100%;
-  background-color: #b2b5ba;
+  background-color: #ecebf6;
 }
 
 form#login h1, form#register h1 {
@@ -110,7 +110,7 @@ form#login h1, form#register h1 {
 
 .user {
   padding-top: 70px;
-  background-color: #b2b5ba;
+  background-color: #ecebf6;
   min-height: 100vh;
 }
 
