@@ -15,22 +15,12 @@ router.get("/:user", function(req, res){
   })
 });
 
-router.get("/:user/ask", function(req, res){
-  user.findOne({username: req.params.user.toString()}, function(err, user){
-    if(err) {
-      console.log(err);
-    } else {
-      res.render("ask", {user: user});
-    }
-  })
-});
-
 router.get("/:user/questions", checkOwner, function(req, res){
   user.findOne({username: req.params.user.toString()}, function(err, foundUser){
     if(foundUser) {
       question.find({asked: req.params.user.toString()}, function(err, questions){
         res.render("questions", {questions: questions, user: req.params.user.toString()});
-      })
+      }).sort({ 'createdAt' : -1 })
     } else {
       res.send("go away")
     }
