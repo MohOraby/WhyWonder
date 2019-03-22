@@ -103,7 +103,7 @@ form#login, form#register {
 
 form#login h1, form#register h1 {
   margin-bottom: 30px;
-  color: white;
+  color: #666363;
 }
 
 /* User Page */
