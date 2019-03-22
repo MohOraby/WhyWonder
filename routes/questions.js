@@ -74,7 +74,7 @@ router.put("/:user/:id", checkOwner, function(req, res){
     if(err) {
       console.log(err);
     } else {
-      res.redirect("/hello");
+      res.redirect("/");
     }
   });
 });
