@@ -112,6 +112,7 @@ form#login h1, form#register h1 {
   padding-top: 70px;
   background-color: #ecebf6;
   min-height: 100vh;
+  padding-bottom: 20px;
 }
 
 .username {

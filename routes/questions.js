@@ -8,7 +8,7 @@ router.get("/:user", function(req, res){
     if(foundUser) {
       question.find({asked: req.params.user.toString()}, function(err, questions){
         res.render("user", {questions: questions, user: user, username: req.params.user.toString()});
-      })
+      }).sort({ 'updatedAt' : -1 })
     } else {
       res.send("go away")
     }

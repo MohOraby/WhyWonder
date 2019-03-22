@@ -36,6 +36,8 @@ app.use(function(req, res, next){
 app.use("/", authRoutes);
 app.use("/", questionRoutes);
 
+var db = mongoose.connection;
+
 app.get("/", function(req, res){
  if(req.user){
    res.redirect("/" + req.user.username);
