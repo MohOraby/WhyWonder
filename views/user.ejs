@@ -2,7 +2,7 @@
   <div class="container user">
     <h1 class="username"><%= username %></h1>
     <form id="new" action="/<%= username %>" method="POST">
-      <textarea name="question[text]" class="ask-form" placeholder="Ask a question" required></textarea>
+      <textarea name="question[text]" class="ask-form" placeholder="Ask <%= username %> a question" required></textarea>
       <input type="submit" class="btn btn-primary ask-btn" value="Ask">
       <input type="text" name="question[asked]" value="<%= username %>" class="form-control" style="display: none;" readonly>
     </form>
