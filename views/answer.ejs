@@ -1,0 +1,11 @@
+<% include partials/header %>
+  <div class="container">
+    <div class="answer-form">
+      <h3><%= question.text %></h3>
+      <form id="edit" action="/<%= question.asked %>/<%= question._id %>?_method=PUT" method="POST">
+        <textarea name="question[answer]" value="<%= question.answer %>" class="answer-box" placeholder="Your Answer" required></textarea>
+        <input type="submit" class="btn btn-success pull-right" value="Answer">
+      </form>
+    </div>
+  </div>
+<% include partials/footer %>

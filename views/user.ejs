@@ -1,0 +1,28 @@
+<% include partials/header %>
+  <div class="container user">
+    <h1 class="username"><%= username %></h1>
+    <form id="new" action="/<%= username %>" method="POST">
+      <textarea name="question[text]" class="ask-form" placeholder="Ask a question" required></textarea>
+      <input type="submit" class="btn btn-primary ask-btn" value="Ask">
+      <input type="text" name="question[asked]" value="<%= username %>" class="form-control" style="display: none;" readonly>
+    </form>
+    <% questions.forEach(function(question){ %>
+      <% if(question.answer !== undefined) { %>
+        <div class="answered">
+          <div>
+           <a href="<%= question.asked %>/<%= question._id %>"><%= question.text %></a>
+          </div>
+          <hr>
+          <div class="answer">
+            <p><%= question.answer %></p>
+          </div>
+        </div>
+        <% if(currentUser && question.asked === currentUser.username) { %>
+          <form id="delete" action="/<%= currentUser.username %>/<%= question._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-large btn-danger">Delete</button>
+          </form>
+        <% } %>
+     <% } %>
+    <% }) %>
+  </div>
+<% include partials/footer %>

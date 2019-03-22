@@ -1,0 +1,205 @@
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #2b3237;
+}
+
+a {
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+textarea {
+  border-radius: 5px;
+}
+
+/* Navbar */
+
+nav a {
+  transition: 0.1s;
+}
+
+/* Home */
+
+.welcome {
+  text-align: center;
+  height: 100vh;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/homeBG.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.slogan {
+  color: white;
+  padding-top: 250px;
+}
+
+.slogan h1 {
+  font-size: 65px;
+}
+
+.slogan p {
+  font-size: 25px;
+  margin-top: 15px;
+}
+
+.join {
+  margin: 0 auto 0 auto;
+  padding-top: 90px;
+  width: 200px;
+}
+
+.register {
+  color: red;
+  display: block;
+  margin: 10px 0 10px 0;
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 4px;
+  padding: 5px 0 5px 0;
+}
+
+.register:hover {
+  color: red;
+}
+
+.login {
+  color: white;
+  display: block;
+  margin: 10px 0 10px 0px;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 5px 0 5px 0;
+}
+
+.login:hover {
+  color: white;
+}
+
+/* Login/Register Page */
+
+form#login, form#register {
+  margin: 0 auto;
+  padding-top: 100px;
+  height: 100vh;
+}
+
+.login-form {
+  width: 100%;
+  background-color: #b2b5ba;
+}
+
+.register-form {
+  width: 100%;
+  background-color: #b2b5ba;
+}
+
+form#login h1, form#register h1 {
+  margin-bottom: 30px;
+  color: white;
+}
+
+/* User Page */
+
+.user {
+  padding-top: 70px;
+  background-color: #b2b5ba;
+  min-height: 100vh;
+}
+
+.username {
+  margin-bottom: 50px;
+}
+
+.ask-form {
+  width: 80%;
+  min-height: 70px;
+}
+
+.ask-btn {
+  display: block;
+}
+
+.answered {
+  background-color: white;
+  padding: 10px 0 10px 20px;
+  border-radius: 10px;
+  margin: 10px 0 10px 0;
+}
+
+.answered a {
+  color: black;
+  font-size: 25px;
+}
+
+.answer {
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+/* Questions Page */
+
+.unanswered {
+  background-color: white;
+  padding: 10px 0 10px 20px;
+  border-radius: 10px;
+  margin: 10px 10px 10px 0;
+}
+
+.unanswered a {
+  color: black;
+  font-size: 25px;
+  width: 100%;
+}
+
+#delete {
+  display: inline;
+}
+
+.delete-btn {
+  margin-left: 15px;
+}
+
+/* Question Page */
+
+.question {
+  margin-top: 70px;
+  padding: 20px 0 20px 20px;  
+  background-color: white;
+  border-radius: 10px;
+}
+
+.question h2 {
+  font-size: 50px;
+}
+
+.question p {
+  font-size: 17px;
+}
+
+/* Answer Page */
+
+.answer-form {
+  margin-top: 80px;
+  background-color: white;
+  width: 500px;
+  margin-left: 0;
+  min-height: 240px;
+}
+
+.answer-form h3 {
+  padding: 10px 0 0 10px;
+}
+
+.answer-box {
+  width: 490px;
+  height: 150px;
+  margin: 0 5px 0 5px;
+}

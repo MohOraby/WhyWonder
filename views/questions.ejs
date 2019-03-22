@@ -1,0 +1,19 @@
+<% include partials/header %>
+  <div class="container user">
+    <h1 class="username">Your Questions</h1>
+    <% questions.forEach(function(question){ %>
+      <% if(question.answer === undefined) { %>
+        <div class="unanswered">
+          <div>
+            <a href="<%= question.asked %>/<%= question._id %>/answer"><%= question.text %></a>
+          </div>
+        </div>
+        <% if(currentUser && question.asked === currentUser.username) { %>
+          <a href="<%= question.asked %>/<%= question._id %>/answer" class="btn btn-warning btn-answer">Answer</a>
+          <form id="delete" action="/<%= currentUser.username %>/<%= question._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-large btn-danger delete-btn">Delete</button>
+          </form>
+        <% } %>
+     <% } %>
+    <% }) %>
+<% include partials/footer %>
