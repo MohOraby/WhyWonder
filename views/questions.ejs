@@ -2,7 +2,7 @@
   <div class="container user">
     <h1 class="username">Your Questions</h1>
     <% questions.forEach(function(question){ %>
-      <% if(question.answer === undefined) { %>
+      <% if(!question.answer) { %>
         <div class="unanswered">
           <div>
             <a href="<%= question.asked %>/<%= question._id %>/answer"><%= question.text %></a>

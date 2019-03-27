@@ -43,6 +43,7 @@ nav a {
 
 .slogan h1 {
   font-size: 65px;
+  font-family: 'Raleway', sans-serif;
 }
 
 .slogan p {
@@ -178,11 +179,11 @@ form#login h1, form#register h1 {
 }
 
 .question h2 {
-  font-size: 50px;
+  font-size: 25px;
 }
 
 .question p {
-  font-size: 17px;
+  font-size: 15px;
 }
 
 /* Answer Page */

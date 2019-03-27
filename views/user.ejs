@@ -1,10 +1,10 @@
 <% include partials/header %>
   <div class="container user">
-    <h1 class="username"><%= username %></h1>
-    <form id="new" action="/<%= username %>" method="POST">
-      <textarea name="question[text]" class="ask-form" placeholder="Ask <%= username %> a question" required></textarea>
+    <h1 class="username"><%= user.username %></h1>
+    <form id="new" action="/<%= user.username %>" method="POST">
+      <textarea name="question[text]" class="ask-form" placeholder="Ask <%= user.username %> a question" required></textarea>
       <input type="submit" class="btn btn-primary ask-btn" value="Ask">
-      <input type="text" name="question[asked]" value="<%= username %>" class="form-control" style="display: none;" readonly>
+      <input type="text" name="question[asked]" value="<%= user.username %>" class="form-control" style="display: none;" readonly>
     </form>
     <% questions.forEach(function(question){ %>
       <% if(question.answer !== undefined) { %>

@@ -3,28 +3,49 @@ var router = express.Router();
 var user = require("../models/user");
 var question = require("../models/question");
 
-router.get("/:user", function(req, res){
-  user.findOne({username: req.params.user.toString()}, function(err, foundUser){
-    if(foundUser) {
-      question.find({asked: req.params.user.toString()}, function(err, questions){
-        res.render("user", {questions: questions, user: user, username: req.params.user.toString()});
-      }).sort({ 'updatedAt' : -1 })
-    } else {
-      res.send("go away")
-    }
-  })
+// router.get("/:user", function(req, res){
+//   user.findOne({username: req.params.user.toString()}, function(err, foundUser){
+//     if(foundUser) {
+//       question.find({asked: req.params.user.toString()}, function(err, questions){
+//         res.render("user", {questions: questions, user: foundUser, username: req.params.user.toString()});
+//       }).sort({ 'updatedAt' : -1 })
+//     } else {
+//       res.send("go away")
+//     }
+//   })
+// });
+
+router.get("/:user", async function(req, res){
+  const foundUser = await user.findOne({username: req.params.user.toString()});
+  const questions = await question.find({asked: req.params.user.toString()}).sort({ 'updatedAt' : -1 });
+  if(foundUser) {
+    res.render("user", {questions: questions, user: foundUser});
+  } else {
+    res.send("go away again");
+  }
 });
 
-router.get("/:user/questions", checkOwner, function(req, res){
-  user.findOne({username: req.params.user.toString()}, function(err, foundUser){
-    if(foundUser) {
-      question.find({asked: req.params.user.toString()}, function(err, questions){
-        res.render("questions", {questions: questions, user: req.params.user.toString()});
-      }).sort({ 'createdAt' : -1 })
-    } else {
-      res.send("go away")
-    }
-  })
+
+// router.get("/:user/questions", checkOwner, function(req, res){
+//   user.findOne({username: req.params.user.toString()}, function(err, foundUser){
+//     if(foundUser) {
+//       question.find({asked: req.params.user.toString()}, function(err, questions){
+//         res.render("questions", {questions: questions, user: req.params.user.toString()});
+//       }).sort({ 'createdAt' : -1 })
+//     } else {
+//       res.send("go away")
+//     }
+//   })
+// });
+
+router.get("/:user/questions", checkOwner, async function(req, res){
+  const foundUser = await user.findOne({username: req.params.user.toString()});
+  const questions = await question.find({asked: req.params.user.toString()}).sort({ 'createdAt' : -1 });
+  if(foundUser) {
+    res.render("questions", {questions: questions});
+  } else {
+    res.send("go away once more");
+  }
 });
 
 router.get("/:user/:id", function(req, res){
@@ -51,7 +72,7 @@ router.post("/:user", function(req, res){
 
 router.get("/:user/:id/answer", checkOwner, function(req, res){
   question.findById(req.params.id, function(err, foundQuestion){
-    if(foundQuestion.answer === undefined) {
+    if(!foundQuestion.answer) {
       res.render("answer", {question: foundQuestion});
     } else {
       res.redirect("/")
@@ -61,11 +82,7 @@ router.get("/:user/:id/answer", checkOwner, function(req, res){
 
 router.put("/:user/:id", checkOwner, function(req, res){
   question.findByIdAndUpdate(req.params.id, req.body.question, function(err, updatedQuestion){
-    if(err) {
-      console.log(err);
-    } else {
-      res.redirect("/");
-    }
+    res.redirect("/");
   });
 });
 

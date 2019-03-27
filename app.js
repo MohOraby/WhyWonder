@@ -36,8 +36,6 @@ app.use(function(req, res, next){
 app.use("/", authRoutes);
 app.use("/", questionRoutes);
 
-var db = mongoose.connection;
-
 app.get("/", function(req, res){
  if(req.user){
    res.redirect("/" + req.user.username);
@@ -47,7 +45,7 @@ app.get("/", function(req, res){
 })
 
 app.get("/*", function(req, res){
-  res.send("go away");
+  res.send("Goooo away");
 });
 
 app.listen(process.env.PORT || 3000, function(){
