@@ -4,13 +4,13 @@
     <form id="new" action="/<%= user.username %>" method="POST">
       <textarea name="text" class="ask-form" placeholder="Ask <%= user.username %> a question" required></textarea>
       <input type="submit" class="btn btn-primary ask-btn" value="Ask">
-      <% if(currentUser) { %>
-        <label for="asker">Ask as: </label>
-        <select class="ask-as" name="asker" id="asker">
-          <option value="">Anonymous</option>
+      <label for="asker">Ask as: </label>
+      <select class="ask-as" name="asker" id="asker">
+        <option value="">Anonymous</option>
+        <% if(currentUser) { %>
           <option value="<%= currentUser.username %>"><%= currentUser.username %></option>
-        </select>
-      <% } %>
+        <% } %>
+      </select>
     </form>
     <% questions.forEach(function(question){ %>
       <% if(question.answer !== undefined) { %>
