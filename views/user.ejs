@@ -5,12 +5,20 @@
       <textarea name="question[text]" class="ask-form" placeholder="Ask <%= user.username %> a question" required></textarea>
       <input type="submit" class="btn btn-primary ask-btn" value="Ask">
       <input type="text" name="question[asked]" value="<%= user.username %>" class="form-control" style="display: none;" readonly>
+      <% if(currentUser) { %>
+        <label for="asker">Ask as: </label>
+        <select class="ask-as" name="question[asker]" id="asker">
+          <option value="">Anonymous</option>
+          <option value="<%= currentUser.username %>"><%= currentUser.username %></option>
+        </select>
+      <% } %>
     </form>
     <% questions.forEach(function(question){ %>
       <% if(question.answer !== undefined) { %>
         <div class="answered">
           <div>
-           <a href="<%= question.asked %>/<%= question._id %>"><%= question.text %></a>
+           <a class="question-text" href="<%= question.asked %>/<%= question._id %>"><%= question.text %></a>
+           <a class="question-asker" href="/<%= question.asker %>"><%= question.asker %></a>
           </div>
           <hr>
           <div class="answer">

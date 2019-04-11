@@ -5,7 +5,8 @@
       <% if(!question.answer) { %>
         <div class="unanswered">
           <div>
-            <a href="<%= question.asked %>/<%= question._id %>/answer"><%= question.text %></a>
+            <a class="question-text" href="<%= question.asked %>/<%= question._id %>/answer"><%= question.text %></a>
+            <a class="question-asker" href="/<%= question.asker %>"><%= question.asker %></a>
           </div>
         </div>
         <% if(currentUser && question.asked === currentUser.username) { %>

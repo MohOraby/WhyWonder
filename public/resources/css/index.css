@@ -129,16 +129,19 @@ form#login h1, form#register h1 {
   display: block;
 }
 
+.ask-as {
+  color: #1662e2;
+  margin-left: 3px;
+  border-radius: 8px;
+  padding: 2px 7px 2px 7px;
+  background-color: #f2f2f2;
+}
+
 .answered {
   background-color: white;
   padding: 10px 0 10px 20px;
   border-radius: 10px;
   margin: 10px 0 10px 0;
-}
-
-.answered a {
-  color: black;
-  font-size: 25px;
 }
 
 .answer {
@@ -155,10 +158,13 @@ form#login h1, form#register h1 {
   margin: 10px 10px 10px 0;
 }
 
-.unanswered a {
+.question-text {
   color: black;
   font-size: 25px;
-  width: 100%;
+}
+
+.question-text:hover {
+  color: black;
 }
 
 #delete {
@@ -167,6 +173,17 @@ form#login h1, form#register h1 {
 
 .delete-btn {
   margin-left: 15px;
+}
+
+.question-asker {
+  display: inline;
+  margin-left: 20px;
+  font-size: 15px;
+  color: #FF643C;
+}
+
+.question-asker:hover {
+  color: #FF643C;
 }
 
 /* Question Page */
