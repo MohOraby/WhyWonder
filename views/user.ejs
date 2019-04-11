@@ -2,12 +2,11 @@
   <div class="container user">
     <h1 class="username"><%= user.username %></h1>
     <form id="new" action="/<%= user.username %>" method="POST">
-      <textarea name="question[text]" class="ask-form" placeholder="Ask <%= user.username %> a question" required></textarea>
+      <textarea name="text" class="ask-form" placeholder="Ask <%= user.username %> a question" required></textarea>
       <input type="submit" class="btn btn-primary ask-btn" value="Ask">
-      <input type="text" name="question[asked]" value="<%= user.username %>" class="form-control" style="display: none;" readonly>
       <% if(currentUser) { %>
         <label for="asker">Ask as: </label>
-        <select class="ask-as" name="question[asker]" id="asker">
+        <select class="ask-as" name="asker" id="asker">
           <option value="">Anonymous</option>
           <option value="<%= currentUser.username %>"><%= currentUser.username %></option>
         </select>

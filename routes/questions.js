@@ -63,7 +63,12 @@ router.get("/:user/:id", async function(req, res){
 });
 
 router.post("/:user", function(req, res){
-  question.create(req.body.question, function(err, newQuestion){
+  var text = req.body.text;
+  var asked = req.params.user;
+  var asker = req.body.asker || undefined;
+  var answer = undefined;
+  var newQuest = {text: text, asked: asked, asker: asker, answer: answer};
+  question.create(newQuest, function(err, newQuestion){
     if(err){
       console.log(err)
       res.redirect("/");
