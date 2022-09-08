@@ -7,23 +7,11 @@ user = require("./models/user"),
 passport = require("passport"),
 LocalStrategy = require("passport-local");
 
-WhyWonder
-
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://temp:tempoz@cluster0.b54n50h.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
-
-
 const authRoutes = require("./routes/auth");
 const questionRoutes = require("./routes/questions");
 
 // mongoose.connect("mongodb://localhost/WhyWonder");
-// mongoose.connect("mongodb+srv://temp:tempoz@cluster0.b54n50h.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://temp:tempoz@cluster0.b54n50h.mongodb.net/?retryWrites=true&w=majority")
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(methodoverride("_method"));
