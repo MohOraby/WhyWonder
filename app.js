@@ -10,7 +10,7 @@ LocalStrategy = require("passport-local");
 WhyWonder
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://temp:<password>@cluster0.b54n50h.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://temp:tempoz@cluster0.b54n50h.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 client.connect(err => {
   const collection = client.db("test").collection("devices");
