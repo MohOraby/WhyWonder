@@ -11,7 +11,7 @@ const authRoutes = require("./routes/auth");
 const questionRoutes = require("./routes/questions");
 
 // mongoose.connect("mongodb://localhost/WhyWonder");
-mongoose.connect("mongodb://temp:mo7amed@ds121406.mlab.com:21406/whywonder")
+mongoose.connect("mongodb+srv://temp:tempoz@cluster0.b54n50h.mongodb.net/?retryWrites=true&w=majority")
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(methodoverride("_method"));
